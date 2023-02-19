@@ -25,7 +25,10 @@ function cuantosMenores(invitados) {
   // };
   // cuantosMenores(invitados) devuelve 2
   // Tu código aca:
-
+  const edades = Object.values(invitados)
+  var menores =0
+  edades.forEach((element) => { element.edad < 18 ? menores += 1 : menores})
+    return menores;
 }
 
 
