@@ -12,16 +12,18 @@ function pedirComida(array) {
   // pedirComida([{nombre: "Harry", dieta: "standard"}, {nombre: "Luna", dieta: 'vegan'}, {nombre: "Goyle", dieta: "standard"}])
   // retorna {standard: 2, vegan: 1}
   // Tu código aca:
-  let acc = { standard: 0 , vegan: 0};
-  for (let item of array){
-    if(item.dieta=="standard"){
-      acc.standard++;
-    }
-    else{
-      acc.vegan++;
-    }
+  let obj = {standard: 0, vegan: 0};
+  for( let i = 0; i < array.length; i++) {
+    let prop = array[i]["dieta"]
+      if(prop == "standard"){
+        obj.standard++
+      } else if (prop == "vegan") {
+        obj.vegan++
+      } else {
+        continue;
+      }
   }
-  return acc;
+  return obj
 }
 
 // No modifiques nada debajo de esta linea //

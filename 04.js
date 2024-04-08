@@ -9,9 +9,11 @@ function doble(array) {
   // ej:
   //doble([1, 2, 3]) devuelve [2, 4, 6]
   // Tu código aca:
-  var respuesta =[];
-  array.forEach(x => respuesta.push (x*2));
-  return respuesta;
+  let doble = [];
+  for(let i = 0; i < array.length ; i++ ) {
+    doble.push(array[i] * 2)
+  }
+  return doble
 }
 
 // No modifiques nada debajo de esta linea //

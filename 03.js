@@ -12,15 +12,16 @@ function fakeBinary2(string) {
   // fakeBinary2('5627') devuelve "1101"
   // fakeBinary("729") devuelve "101"
   // Tu código aca:
-  var resultado = "";
-  for (var i =0; i < string.length; i++) {
-    if (string[i]< 5) {
-      resultado += "0";
-    }else{
-      resultado+= "1";
-    }
+  let separar = string.split("")
+  let binary = []
+  for(let i = 0; i < separar.length ; i++) {
+      if(separar[i] < 5) {
+          binary.push("0")
+      } else {
+          binary.push("1")
+      }
   }
-  return resultado;
+  return binary.join("")
 }
 
 // No modifiques nada debajo de esta linea //

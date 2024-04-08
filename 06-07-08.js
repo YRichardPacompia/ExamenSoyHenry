@@ -5,16 +5,16 @@
   No comentar la funcion 
 */
 function crearClaseMascota() {
-  class Mascota {
+  return class Mascota {
     constructor(nombre, dueño, actividades) {
       // El constructor de la clase Mascota recibe nombre (string), dueño (objeto), actividades (array de objetos)
       // ej:
       //[{actividad: 'salir a caminar', frecuencia: '1 vez al dia'}, {actividad: 'baño', frecuencia: '1 vez al mes'}]
       // Inicializar las propiedades de la mascota con los valores recibidos como argumento
       // Tu código aca:
-      this.nombre = nombre;
-      this.dueño = dueño;
-      this.actividades = actividades;
+      this.nombre = nombre,
+      this.dueño = dueño,
+      this.actividades = actividades
     }
 
     getNombre() {
@@ -26,18 +26,15 @@ function crearClaseMascota() {
     getDueño() {
       // El método debe retornar nombre y apellido del dueño (concatenados).
       // Tu código aca:
-      return this.dueño.nombre + ' ' + this.dueño.apellido;
+      return this.dueño["nombre"] + " " +this.dueño["apellido"];
+
     }
 
     addActividad(actividad, frecuencia) {
       // El método recibe un string 'actividad' y otro string 'frecuencia'  y debe agregarlo al arreglo de actividades de la mascota.
       // No debe retornar nada.
       // Tu código aca:
-      var actividad2 ={
-        actividad: actividad,
-        frecuencia:frecuencia
-      };
-      this.actividades.push(actividad2);
+      this.actividades.push({actividad, frecuencia})
     }
 
     getActividades() {
@@ -46,10 +43,12 @@ function crearClaseMascota() {
       // [{actividad: 'salir a caminar', frecuencia: '1 vez al dia'}, {actividad: 'baño', frecuencia: '1 vez al mes'}]
       // mascotas.getActividades() debería devolver ['salir a caminar, 'baño']
       // Tu código aca:
-      var guardarActividad = ((pet) => pet.actividad);
-      var nombreActividad = this.actividades.map(guardarActividad);
-      return nombreActividad;
-     
+      let actividad = [];
+      let arr = this.actividades
+      for(let i = 0; i < arr.length; i++){
+        actividad.push(arr[i]["actividad"])
+      }
+      return actividad;
     }
 
     getFrecuencia(actividad) {
@@ -58,16 +57,17 @@ function crearClaseMascota() {
       // [{actividad: 'salir a caminar', frecuencia: '1 vez al dia'}, {actividad: 'baño', frecuencia: '1 vez al mes'}]
       // mascotas.getFrecuencia('baño') debería devolver '1 vez al mes'
       // Tu código aca:
-      var actividadStr = '';
-      for (var i =0; i < this.actividades.length; i++){
-        if (actividad === this.actividades[i].actividad){
-          actividadStr = this.actividades[i].frecuencia;
+      let ac = this.actividades
+      for(let i = 0; i < ac.length; i++) {
+        if(ac[i]["actividad"] != actividad) {
+          continue;
+        } else {
+          return ac[i]["frecuencia"]
         }
-      }return actividadStr;
+      }
     }
   }
 
-  return Mascota;
 }
 
 // No modifiques nada debajo de esta linea //
